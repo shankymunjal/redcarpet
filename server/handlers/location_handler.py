@@ -2,8 +2,11 @@ from flask_restful import Resource
 from flask import request
 import json
 
+from server.handlers.user_handler import authenticate_user
+
 
 class LocationHandler(Resource):
+    @authenticate_user
     def get(self, location_name):
         from server.models.location import Location, db
         location = db.session.query(Location).filter(Location.name == location_name).first()
@@ -21,6 +24,7 @@ class LocationHandler(Resource):
         else:
             return {"error": "Location not found"}
 
+    @authenticate_user
     def post(self):
         from server.models.location import Location, db
         input_data = json.loads(request.data)
