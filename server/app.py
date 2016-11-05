@@ -2,6 +2,7 @@ from flask_restful import Api
 from flask import Flask, jsonify
 from flask import request
 from server.handlers.location_handler import LocationHandler
+from server.handlers.user_handler import UserHandler
 from flask.ext.sqlalchemy import SQLAlchemy
 
 
@@ -11,7 +12,8 @@ db = SQLAlchemy(app)
 
 api = Api(app)
 
-api.add_resource(LocationHandler, "/locations", "/locations/<location_name>")
+api.add_resource(LocationHandler, "/api/locations", "/locations/<location_name>")
+api.add_resource(UserHandler, "/api/users")
 
 
 if __name__ == '__main__':
