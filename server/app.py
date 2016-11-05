@@ -11,7 +11,7 @@ db = SQLAlchemy(app)
 
 api = Api(app)
 
-api.add_resource(LocationHandler, "/locations")
+api.add_resource(LocationHandler, "/locations", "/locations/<location_name>")
 
 
 if __name__ == '__main__':
