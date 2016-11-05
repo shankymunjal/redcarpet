@@ -1,3 +1,5 @@
 Flask-Restful==0.3.4
 Flask-Security==1.7.5
 Paver==1.2.4
+psycopg2==2.6.1
+Flask-SQLAlchemy===2.1
